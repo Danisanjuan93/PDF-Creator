@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DocApp</string>
+    <string name="createDocument">Crear Documento</string>
+</resources>
