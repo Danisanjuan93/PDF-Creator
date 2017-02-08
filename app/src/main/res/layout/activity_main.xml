@@ -8,48 +8,147 @@
         android:id="@+id/btnGenerar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/createDocument" />
+        android:text="@string/createDocument"
+        android:layout_x="0dp"
+        android:layout_y="0dp" />
 
     <EditText
+        android:textStyle="bold"
+        android:enabled="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Piso"
         android:ems="10"
-        android:layout_below="@+id/btnGenerar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="52dp"
-        android:id="@+id/editText" />
+        android:layout_x="53dp"
+        android:layout_y="177dp"
+        android:id="@+id/firstPlate"
+        android:hint="Primer Plato"
+        android:layout_below="@+id/floorNumber"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="92dp" />
 
     <EditText
+        android:textStyle="bold"
+        android:enabled="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Bloque"
         android:ems="10"
-        android:layout_below="@+id/editText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/blockNumber" />
+        android:layout_x="55dp"
+        android:layout_y="224dp"
+        android:id="@+id/secondPlate"
+        android:hint="Segundo Plato"
+        android:layout_below="@+id/firstPlate"
+        android:layout_alignLeft="@+id/firstPlate"
+        android:layout_alignStart="@+id/firstPlate" />
+
+    <EditText
+        android:textStyle="bold"
+        android:enabled="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_x="55dp"
+        android:layout_y="272dp"
+        android:id="@+id/portion"
+        android:hint="Extra"
+        android:layout_below="@+id/secondPlate"
+        android:layout_alignLeft="@+id/secondPlate"
+        android:layout_alignStart="@+id/secondPlate" />
+
+    <EditText
+        android:textStyle="bold"
+        android:enabled="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_x="55dp"
+        android:layout_y="330dp"
+        android:id="@+id/dessert"
+        android:hint="Postre"
+        android:layout_below="@+id/portion"
+        android:layout_alignLeft="@+id/portion"
+        android:layout_alignStart="@+id/portion" />
 
     <Button
+        android:enabled="false"
         android:text="Guardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText"
+        android:layout_x="129dp"
+        android:layout_y="385dp"
+        android:id="@+id/saveData"
+        android:layout_below="@+id/dessert"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="31dp"
-        android:id="@+id/saveButton" />
+        android:layout_marginLeft="47dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="12dp" />
 
     <Button
-        android:text="saveexit"
+        android:enabled="false"
+        android:text="Guardar y Salir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/saveButton"
-        android:layout_toRightOf="@+id/saveButton"
-        android:layout_toEndOf="@+id/saveButton"
-        android:id="@+id/closeFile" />
+        android:layout_x="154dp"
+        android:layout_y="463dp"
+        android:id="@+id/closePdf"
+        android:layout_alignBaseline="@+id/saveData"
+        android:layout_alignBottom="@+id/saveData"
+        android:layout_alignLeft="@+id/spinnerHourOfFood"
+        android:layout_alignStart="@+id/spinnerHourOfFood" />
+
+    <EditText
+        android:textStyle="bold"
+        android:enabled="false"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/blockNumber"
+        android:layout_x="188dp"
+        android:layout_y="82dp"
+        android:hint="Bloque"
+        android:layout_above="@+id/firstPlate"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Spinner
+        android:layout_width="181dp"
+        android:layout_height="wrap_content"
+        android:layout_x="178dp"
+        android:layout_y="141dp"
+        android:id="@+id/spinnerHourOfFood"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/blockNumber"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:enabled="false"
+        android:layout_width="123dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginTop="38dp"
+        android:id="@+id/floorNumber"
+        android:layout_y="80dp"
+        android:layout_x="56dp"
+        android:hint="Piso"
+        android:layout_below="@+id/btnGenerar"
+        android:layout_alignRight="@+id/saveData"
+        android:layout_alignEnd="@+id/saveData" />
+
+    <Spinner
+        android:layout_width="143dp"
+        android:layout_height="wrap_content"
+        android:layout_x="19dp"
+        android:layout_y="138dp"
+        android:id="@+id/spinnerDay"
+        android:layout_alignTop="@+id/spinnerHourOfFood"
+        android:layout_alignLeft="@+id/floorNumber"
+        android:layout_alignStart="@+id/floorNumber" />
 
 </RelativeLayout>
