@@ -8,30 +8,21 @@ import java.util.List;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.graphics.Paint;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Html;
-import android.text.SpannableString;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.lowagie.text.Chunk;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.Font;
 import com.lowagie.text.Paragraph;
-import com.lowagie.text.Phrase;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
@@ -96,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         editTextList = new ArrayList<>();
     }
 
+    /* We create an ArrayList with EditText fields to clear all this fields when the save button is pressed */
     private void createEditTextList() {
         editTextList.add(floorNumber);
         editTextList.add(blockNumber);
@@ -142,6 +134,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         }
     }
 
+    /* On this function we create two directories (first one is a directory and the second one is a subdirectory)
+     * Also we will check if the file already exist. In this case, the filename will be modified */
     @Override
     public void onClick(View v) {
         String tarjetaSD = Environment.getExternalStorageDirectory().toString();
