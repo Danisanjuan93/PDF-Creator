@@ -5,10 +5,13 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import android.Manifest;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        checkPermissionsOnDevice();
         initFields();
         createEditTextList();
         initSpinners();
@@ -63,6 +67,18 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 onClickExitButton();
             }
         });
+    }
+
+    private void checkPermissionsOnDevice() {
+        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.M){
+            if (this.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+                if (shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)){
+
+                } else {
+                    requestPermissions(new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                }
+            }
+        }
     }
 
     private void initSpinners() {
@@ -113,15 +129,15 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         pdfPCell.addElement(new Paragraph(floorNumber.getText().toString() + "                                      " + blockNumber.getText().toString(), new Font(2, 14, 1)));
         pdfPCell.addElement(new Paragraph("               " + day.getSelectedItem().toString() + "/" + time.getSelectedItem().toString(), new Font(2, 14, 1)));
         pdfPCell.addElement(new Paragraph("\n"));
-        pdfPCell.addElement(new Paragraph("               " + firstPlate.getText().toString(), new Font(2, 14, 1)));
+        pdfPCell.addElement(new Paragraph("               " + firstPlate.getText().toString(), new Font(2, 18, 1)));
         pdfPCell.addElement(new Paragraph("\n"));
-        pdfPCell.addElement(new Paragraph("               " + secondPlate.getText().toString(), new Font(2, 14, 1)));
+        pdfPCell.addElement(new Paragraph("               " + secondPlate.getText().toString(), new Font(2, 18, 1)));
         pdfPCell.addElement(new Paragraph("\n"));
         if (portion.getText().length() != 0) {
-            pdfPCell.addElement(new Paragraph("               " + "c/" + portion.getText().toString(), new Font(2, 14, 1)));
+            pdfPCell.addElement(new Paragraph("               " + "c/" + portion.getText().toString(), new Font(2, 18, 1)));
             pdfPCell.addElement(new Paragraph("\n"));
         }
-        pdfPCell.addElement(new Paragraph("                 " + dessert.getText().toString(), new Font(2, 14, 1)));
+        pdfPCell.addElement(new Paragraph("                 " + dessert.getText().toString(), new Font(2, 18, 1)));
         pdfPCell.addElement(new Paragraph("\n\n\n"));
         table.addCell(pdfPCell);
         Toast.makeText(getApplicationContext(), "Se han guardado con exito los datos del paciente", Toast.LENGTH_SHORT).show();
